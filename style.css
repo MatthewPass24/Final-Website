@@ -1,0 +1,19 @@
+.hero {
+    text-align: center;
+    background-color: #ffc89fd7;
+    padding: 50px 0;
+}
+.landing {
+    max-width: 100%;
+    height: auto;
+}
+.navbar{
+    background-color: #f09f62d7;
+    box-shadow: 2px 2px 2px ;
+}
+
+.navbar-brand{
+    
+}
+
+
