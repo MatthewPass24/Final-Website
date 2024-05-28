@@ -13,7 +13,7 @@
     box-shadow: 2px 2px 2px ;
 }
 .icon {
-    height: 30px;
+    height: 40px;
     padding: 0em;
     margin: 0em;
 }
@@ -21,7 +21,7 @@
     text-align: center
 }
 .bg-hero-image {
-    background-image: url('https://picsum.photos/1300/500');
+    background-image: url('images/Main\ Logo\ \(1\).png');
     background-position: center center;
     height: 20rem;;
     
@@ -34,9 +34,17 @@
 
 }
 .box {
-    box-shadow: 10px 10px 2px;
+    box-shadow: 6px 6px 12px;
     border-radius: 5px;
+    margin: 6em;
 }
-
-
-
+p {
+	/* Use a flexbox layout */
+	display: flex;
+	
+	/* Make a horizontal flexbox (the default) */
+	flex-direction: row;
+	
+	/* The important part: vertically center the items */
+	align-items: center;
+}
