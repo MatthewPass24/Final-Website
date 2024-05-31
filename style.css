@@ -19,7 +19,10 @@
     margin: 0em;
 }
 .about {
-    text-align: center
+    text-align: center;
+}
+.products {
+    text-align: center;
 }
 .bg-hero-image {
     background-image: url('images/Main\ Logo\ \(1\).png');
@@ -28,10 +31,10 @@
     
 } 
 .card {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(255, 255, 255);
     margin-top: 2rem;
     box-shadow: 10px 10px 2px;
-    margin: 20%;
+
 
 }
 .box {
@@ -47,13 +50,22 @@ p {
 	flex-direction: row;
 	
 	/* The important part: vertically center the items */
-	align-items: center;
+
+}
+#teamCards {
+    margin-left: 2em;
+    margin-right: 2em;
 }
 .contact{
     padding: 4%;
-    
-    
 }
+.card-header{
+color: rgb(255, 255, 255);
+background-color: #ffc99f;
+border: double 6px;
+border-radius: 50px;
+font-size: 30px;
+  }
 #info{
     background: #ffc99f;
     padding: 4%;
@@ -70,12 +82,12 @@ p {
 .contact-info h2{
     margin-bottom: 10%;
 }
-.col-md-9{
+.label{
     background: #fff;
     padding: 3%;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    position: relative
+    background-color: #ffc99f2f;
 }
 .contact-form label{
     font-weight:600;
