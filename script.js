@@ -15,7 +15,7 @@ closeShopping.addEventListener('click', ()=>{
     body.classList.remove('active');
 })
 
-const teamMembers = [
+let teamMembers = [
     {
         img: 'images/train1.jpg',
         name: 'Wooden Train',
@@ -104,7 +104,7 @@ function generateTeamCards() {
                     <p><strong>Age Range:</strong> ${member.age}</p>
                     <p><strong>Price:</strong> ${member.price}</p>
                     <p><strong>Rating:</strong> ${member.rating}</p>
-                    <p><strong>Description:</strong> ${member.description}</p>
+                    <p><strong>Description: </strong> ${member.description}</p>
                 </div>
             </div>
         `;
