@@ -17,25 +17,25 @@ let products = [
     {
         id: 1,
         name: 'Wooden Train',
-        image: 'images/train1.jpg',
-        price: 5.49
+        image: 'images/file (4).jpg',
+        price: 25.49
     },
     {
         id: 2,
         name: 'Wooden Plane',
-        image: 'images/plane1.jpg',
+        image: 'images/file (1).jpg',
         price: 20.99
     },
     {
         id: 3,
         name: 'Wooden Car',
-        image: 'images/car1.jpg',
-        price: 6.99
+        image: 'images/file (5).jpg',
+        price: 16.99
     },
     {
         id: 4,
-        name: 'Wooden Plane (2) ',
-        image: 'images/plane2.jpg',
+        name: 'Wooden Boat ',
+        image: 'images/file (3).jpg',
         age: 'Child',
         price: 20.99,
     },
