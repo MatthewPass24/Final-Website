@@ -1,3 +1,4 @@
+
 .hero {
     text-align: center;
     background-color: #ffc89fd7;
@@ -282,9 +283,26 @@ header .shopping span{
 }
 
 
+#back-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 99;
+    background-color: black;
+    color:  #f8c494;
+    border: #000000;
+    border-radius: 20px;
+  }
 
 
-
+  @font-face {
+    font-family: "Sugar & Spice";
+    src: url('Sugar\ &\ Spice\ demo.ttf') format('truetype');
+  }
+  h4{
+    font-family: "Sugar & Spice";
+  }
 
 
 

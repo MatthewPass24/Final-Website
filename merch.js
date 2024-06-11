@@ -56,6 +56,31 @@ let products = [
     }
 
 ];
+function generateProductCards() {
+    const productCardsContainer = document.getElementById('productCards');
+  
+    products.forEach((product, index) => {
+        const card = document.createElement('div');
+        card.classList.add('col-lg-4', 'col-md-6', 'col-sm-12');
+  
+        card.innerHTML = `
+        <div class = "card text-dark">
+          <div class = "card-header">
+              ${product.product}
+          </div>
+          <div class = "card-image">
+            <img src="${product.image}" class="img-fluid" style="min-height: 250px; height: 275px;">
+          </div>
+          <div class = "card-body py-1" style="background-color:$     {backgroundColor};">
+            <p><strong>Price: </strong>$${product.price}</p> 
+          </div>
+        </div>  
+        </div>
+    `;
+        productCardsContainer.appendChild(card);
+  
+    });
+  }
 let listCards  = [];
 function initApp(){
     products.forEach((value, key) =>{
@@ -111,3 +136,25 @@ function changeQuantity(key, quantity){
     }
     reloadCard();
 }
+
+// Get the button element
+let backToTopBtn = document.getElementById("back-to-top-btn");
+
+// Show or hide the button based on scroll position
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset > 100) {
+    // Show the button
+    backToTopBtn.style.display = "block";
+  } else {
+    // Hide the button
+    backToTopBtn.style.display = "none";
+  }
+});
+
+// Scroll to the top when the button is clicked
+backToTopBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" 
+  });
+});
