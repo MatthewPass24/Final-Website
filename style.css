@@ -1,3 +1,19 @@
+.banner{
+    background: url("images/block4.jpg");
+    height: 90vh;
+    margin-top: 0;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-blend-mode: overlay;
+    background-color: #fcd9bdf5;
+    
+  }
 
 .hero {
     text-align: center;
@@ -49,32 +65,29 @@
 .products {
     text-align: center;
 }
-.bg-hero-image {
-    background-image: url('images/Main\ Logo\ \(1\).png');
-    background-position: center center;
-    height: 25rem;;
-    background-color: #ffc99f;
-} 
-.card {
-    background-color: #ffc99f;
-    margin-top: 2rem;
-    box-shadow: 10px 10px 2px;
-}
-.box {
-    box-shadow: 6px 6px 12px;
-    border-radius: 5px;
-    margin: 6em;
-}
-p {
-	/* Use a flexbox layout */
-	display: flex;
-	
-	/* Make a horizontal flexbox (the default) */
-	flex-direction: row;
-	
-	/* The important part: vertically center the items */
+.roww {
+    box-shadow: #503b3b 0px 4px 29px 0px;
+  }
+  
+  .bg-hero-image {
+    background: url("images/Main\ Logo\ \(1\).png");
+    background-size: cover;
+    background-color: #f09f62d7;;
+    background-position: center;
+    height: 350px;
+  }
+  
+  .white {
+    height:350px;
+    background: white;
+  }
+  
 
-}
+  .description {
+    color: #503b3b;
+    font-family: "Urbanist", sans-serif;
+    font-size: clamp(1rem, 1.2vw, 400px);
+  }
 #teamCards {
     margin-left: 2em;
     margin-right: 2em;
@@ -300,8 +313,13 @@ header .shopping span{
     font-family: "Sugar & Spice";
     src: url('Sugar\ &\ Spice\ demo.ttf') format('truetype');
   }
-  h4{
+  h1{
     font-family: "Sugar & Spice";
+    font-size: 8em;
+    color: rgb(48, 34, 30);
+  }
+  h4 {
+    font-weight: 200;
   }
 
 
