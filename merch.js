@@ -59,13 +59,13 @@ let products = [
 function generateProductCards() {
     const productCardsContainer = document.getElementById('productCards');
   
-    productsInfo.forEach(product => {
+    products.forEach(product => {
         const card = document.createElement('div')
         card.classList.add('col-12', 'col-md-6', 'col-lg-4', 'mb-4')
 
   
         card.innerHTML = `
-        <div class = "card text-dark">
+        <div class = "card col-lg-4 col-md-6 col-sm-12 text-dark">
           <div class = "card-header">
               ${product.product}
           </div>

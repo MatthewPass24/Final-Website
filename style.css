@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     background-blend-mode: overlay;
-    background-color: #fcd9bdf5;
+    background-color: #e9ccc0f5;
     
   }
 
@@ -74,11 +74,11 @@
     background-size: cover;
     background-color: rgb(255, 201, 159);
     background-position: center;
-    height: 350px;
+    height: 375px;
   }
   
   .white {
-    height:350px;
+    height:375px;
     background: white;
   }
   
@@ -162,15 +162,23 @@ header .shopping span{
     left: 80%;
     padding: 3px 10px;
 }
-.list{
+.list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-    row-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust column width */
+    gap: 20px; /* Shorthand for column-gap and row-gap */
     margin-top: 50px;
     margin-left: 5em;
-    margin-right:5em;
- 
+    margin-right: 5em;
+    padding: 0 1em; /* Add padding instead of margin */
+}
+
+/* Optional: Adjust margin for larger screens */
+@media (min-width: 768px) {
+    .list {
+        margin-top: 0; /* Remove margin from the top */
+        padding: 0; /* Reset padding */
+        grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+    }
 }
 .list .item{
     text-align: center;
@@ -194,7 +202,6 @@ header .shopping span{
     background-color: #ebb582;
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    font-size: 1vw;
     width: 100%;
     padding: 10px;
 }
@@ -321,8 +328,34 @@ header .shopping span{
   h4 {
     font-weight: 200;
   }
+  li {
+    font-family: "Sugar & Spice";
+    font-size: 1.5em;
+  }
 
-
+/* Change font for the Little Bird Toy Company section */
+.footer h6 {
+    font-family: "Sugar & Spice"; 
+    font-size: 25px;
+  }
+  
+  /* Change font for the Products section */
+  .footer .col-md-2 a {
+    font-family: "Sugar & Spice";  
+    font-size: 20px;
+  }
+  
+  /* Change font for the Store Hours and Location section */
+  .footer .col-md-3 p {
+    font-family: "Sugar & Spice";  
+    font-size: 20px;
+  }
+  
+  /* Change font for the Contact section */
+  .footer .col-md-4 p {
+    font-family: "Sugar & Spice";  
+    font-size: 20px;
+  }
 
 
 
