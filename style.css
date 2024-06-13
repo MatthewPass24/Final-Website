@@ -85,7 +85,8 @@
 
   .description {
     color: #503b3b;
-    font-family: "Urbanist", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
     font-size: clamp(1rem, 1.2vw, 400px);
   }
 #teamCards {
@@ -129,8 +130,14 @@ font-size: 30px;
     font-weight:600;
 }
 .contact-form button{
-    background: #25274d;
+    background-color: #e76c0ec2;
     color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+.contact-form button:hover{
+    border-color: #e76c0ec2;
+    color: #e76c0ec2;
     font-weight: 600;
     width: 25%;
 }

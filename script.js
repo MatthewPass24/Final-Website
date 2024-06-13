@@ -171,4 +171,7 @@ function changeQuantity(key, quantity){
     reloadCard();
 }
 
+document.getElementById("reset").addEventListener("click", function() {
 
+    location.reload();
+  })
