@@ -65,10 +65,11 @@ function generateProductCards() {
 
   
         card.innerHTML = `
-        <div class = "card col-lg-4 col-md-6 col-sm-12 text-dark">
+        <div class = "card col-lg-4 col-md-6 col-sm-12 text-dark" id="card">
           <div class = "card-header">
-              ${product.product}
+              ${product.name}
           </div>
+          <div class="card-body">
           <div class = "card-image">
             <img src="${product.image}" class="img-fluid" style="min-height: 250px; height: 275px;">
           </div>
