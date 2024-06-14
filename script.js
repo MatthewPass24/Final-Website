@@ -1,5 +1,3 @@
-
-//Shopping cart
 let openShopping = document.querySelector('.shopping');
 let closeShopping = document.querySelector('.closeShopping');
 let list = document.querySelector('.list');
@@ -8,170 +6,202 @@ let body = document.querySelector('body');
 let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
 
-openShopping.addEventListener('click', ()=>{
+openShopping.addEventListener('click', () => {
     body.classList.add('active');
-})
-closeShopping.addEventListener('click', ()=>{
+});
+closeShopping.addEventListener('click', () => {
     body.classList.remove('active');
-})
+});
 
-let teamMembers = [
+let products = [
     {
-        img: 'images/train1.jpg',
-        name: 'Wooden Train',
-        age: 'Toddler',
-        price: '$25.99',
-        rating: '5/5 stars',
-        description: 'Pefect for those who have a passion for locomotives, the wooden train is a perfect toy for all children. Made from our finest wood our Tain is a must have.',
+        id: 1,
+        name: 'Wooden Train Set',
+        image: 'images/file (4).jpg',
+        age: '3+',
+        description: 'Embark on a charming journey with this beautiful handcrafted wooden train set. ',
+        price: 25.49
     },
-
     {
-        img: 'images/plane1.jpg',
+        id: 2,
         name: 'Wooden Plane',
-        age: 'Child',
-        price: '$15.99',
-        rating: '5/5 stars',
-        description: 'A fun imaginitve plane perfect for young aviators. This toy is guaranteed to intrigue children. Also makes an intresting shelf ornament',
+        image: 'images/file (1).jpg',
+        age: 'Toddlers',
+        description: 'Soar through imaginative skies with this classic wooden airplane.',
+        price: 20.99
     },
-
     {
-        img: 'images/car1.jpg',
+        id: 3,
         name: 'Wooden Car',
-        age: 'Toddler',
-        skills: ['skill 1', 'skill 2', 'skill 3'],
-        price: '$17.99',
-        rating: '5/5 stars',
-        description: 'Vroom Vroom, a perfect adition to future speedsters toy collections. Made my strong oak wood, it is guranteed to last.',
+        image: 'images/file (5).jpg',
+        age: 'All Ages',
+        description: 'This heirloom-quality wooden car is a timeless treasure. ',
+        price: 16.99
     },
     {
-        img: 'images/plane2.jpg',
-        name: 'Wooden Plane (2) ',
-        age: 'Child',
-        price: '$20.99',
-        rating: '5/5 stars',
-        description: 'Similar to our original plane, it remains a fun imaginitve plane perfect for young aviators. The diffr',
+        id: 4,
+        name: 'Wooden Boat ',
+        image: 'images/file (3).jpg',
+        age: 'All Ages',
+        description: 'Set sail for bathtub adventures with this adorable wooden boat.',
+        price: 20.99,
     },
     {
-        img: 'images/train3.jpg',
+        id: 5,
         name: 'Wooden Train',
-        age: 'Toddler',
-        price: '$15.99',
-        rating: '5/5 stars',
-        description: 'Another train for future conductors. This train does not come with the carts attached but still, the wooden train is a perfect toy for all children ',
+        image: 'images/train3.jpg',
+        age: '3+',
+        description: 'Engine and car boasts intricate details made from real beech wood. ',
+        price: 15.99,
     },
     {
-        img: 'images/block2.jpg',
+        id: 6,
         name: 'Wooden Blocks',
-        age: 'Child',
-        price: '$5.99',
-        rating: '5/5 stars',
-        description: 'Blocks for imaginative youngsters, these are perfect for encouraging play that is tied to stimulating the brain.',
-    },
+        image: 'images/block2.jpg',
+        age: '3+',
+        description: 'Build creativity and imagination with this high-quality, 72-piece block set. ',
+        price: 12.99,
+    }
+];
 
+// Check if there are items in the cart in local storage
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
+function generateProductCards() {
+    const productCardsContainer = document.getElementById('productCards');
 
-]
-function generateTeamCards() {
-    const teamCardsContainer = document.getElementById('teamCards');
-    teamMembers.forEach(member => {
-        const card = document.createElement('item');
-        card.classList.add('col-md-4');
-        card.classList.add('col-sm-12');
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('col-12', 'col-md-6', 'col-lg-4', 'mb-4');
 
-        // Define background color based on position
-    
-
-        // Apply border color to the card-header
-        let borderColor;
-        switch (member.age) {
-            case 'Toddler':
-                borderColor = 'white';
-                break;
-            case 'Child':
-                borderColor = 'white';
-                break;
-            case 'Teen':
-                borderColor = 'white';
-                break;
-            case 'Tween':
-                borderColor = 'white';
-                break;
-        }
         card.innerHTML = `
-            <div class="card col-lg-4 col-md-6 col-sm-12 h-100">
-                <div class="card-header text-center" style="border-color: ${borderColor};">${member.name}</div>
-                <div class="card-body">
-                    <img class="img-fluid" src="${member.img}">
-                    <p><strong>Age Range:</strong> ${member.age}</p>
-                    <p><strong>Price:</strong> ${member.price}</p>
-                    <p><strong>Rating:</strong> ${member.rating}</p>
-                    <p><strong>Description: </strong> ${member.description}</p>
-                </div>
+        <div class="card text-dark" id="card">
+            <div class="card-header">
+                <h2>${product.name}</h2>
             </div>
-        `;
+            <div class="card-body">
+                <div class="card-image">
+                    <img src="${product.image}" class="img-fluid" style="min-height: 250px; height: 275px;">
+                </div>
+                <div class="card-body py-1" style="background-color:${backgroundColor};">
+                    <p><strong>Age:</strong> ${product.age}</p>
+                    <p><strong>Description:</strong> ${product.description}</p>
+                    <p><strong>Price: </strong>$${product.price}</p> 
+                    <button onclick="addToCart(${product.id})">Add To Cart</button>
+                </div>
+            </div>  
+        </div>`;
+        productCardsContainer.appendChild(card);
 
-        teamCardsContainer.appendChild(card);
     });
 }
 
-window.onload = generateTeamCards();
-let listCards  = [];
-function initApp(){
-    teamMembers.forEach((value, key) =>{
+
+function initApp() {
+    products.forEach(product => {
         let newDiv = document.createElement('div');
         newDiv.classList.add('item');
         newDiv.innerHTML = `
-            <img src="${value.img}">
-            <div class="title">${value.name}</div>
-            <div class="price">${value.price.toLocaleString()}</div>
-            <button onclick="addToCard(${key})">Add To Cart</button>`;
+            <div class="title my-2"><h3>${product.name}</h3></div>
+            <img src="${product.image}">
+            <div class="age"><p><strong>Age: </strong>${product.age}</p></div>
+            <div class="description"><p><strong>Description: </strong>${product.description}</p></div>
+            <div class="price"><p>$${product.price.toLocaleString()}</p></div>
+            <button onclick="addToCart(${product.id})"><p>Add To Cart</p></button>`;
         list.appendChild(newDiv);
-    })
+    });
+
+    // Populate cart with items from local storage
+    reloadCart();
 }
-initApp();
-function addToCard(key){
-    if(listCards[key] == null){
-        // copy product form list to list card
-        listCards[key] = JSON.parse(JSON.stringify(teamMembers[key]));
-        listCards[key].quantity = 1;
+
+function addToCart(productId) {
+    // Find the product by its ID
+    const product = products.find(item => item.id === productId);
+
+    // Check if the product is already in the cart
+    const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+
+    if (existingItemIndex !== -1) {
+        // If the product is already in the cart, increase its quantity
+        cartItems[existingItemIndex].quantity++;
+    } else {
+        // If the product is not in the cart, add it with quantity 1
+        cartItems.push({ ...product, quantity: 1 });
     }
-    reloadCard();
+
+    // Save the updated cart to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Reload the cart display
+    reloadCart();
 }
-function reloadCard(){
+
+function reloadCart() {
     listCard.innerHTML = '';
+
     let count = 0;
     let totalPrice = 0;
-    listCards.forEach((value, key)=>{
-        totalPrice = totalPrice + value.price;
-        count = count + value.quantity;
-        if(value != null){
-            let newDiv = document.createElement('li');
-            newDiv.innerHTML = `
-                <div><img src="${value.image}"/></div>
-                <div>${value.name}</div>
-                <div>${value.price.toLocaleString()}</div>
-                <div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                    <div class="count">${value.quantity}</div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-                </div>`;
-                listCard.appendChild(newDiv);
-        }
-    })
+
+    cartItems.forEach((item, index) => {
+        totalPrice += item.price * item.quantity;
+        count += item.quantity;
+
+        let newDiv = document.createElement('li');
+        newDiv.innerHTML = `
+            <div><img src="${item.image}"/></div>
+            <div>${item.name}</div>
+            <div>${(item.price * item.quantity).toLocaleString()}</div>
+            <div>
+                <button onclick="changeQuantity(${index}, ${item.quantity - 1})">-</button>
+                <div class="count">${item.quantity}</div>
+                <button onclick="changeQuantity(${index}, ${item.quantity + 1})">+</button>
+            </div>`;
+        listCard.appendChild(newDiv);
+    });
+
     total.innerText = totalPrice.toLocaleString();
     quantity.innerText = count;
 }
-function changeQuantity(key, quantity){
-    if(quantity == 0){
-        delete listCards[key];
-    }else{
-        listCards[key].quantity = quantity;
-        listCards[key].price = quantity * teamMembers[key].price;
+
+function changeQuantity(index, quantity) {
+    if (quantity <= 0) {
+        // If quantity is 0 or less, remove the item from the cart
+        cartItems.splice(index, 1);
+    } else {
+        // Update the quantity of the item in the cart
+        cartItems[index].quantity = quantity;
     }
-    reloadCard();
+
+    // Save the updated cart to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Reload the cart display
+    reloadCart();
 }
 
-document.getElementById("reset").addEventListener("click", function() {
+// Get the button element
+let backToTopBtn = document.getElementById("back-to-top-btn");
 
-    location.reload();
-  })
+// Show or hide the button based on scroll position
+window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 100) {
+        // Show the button
+        backToTopBtn.style.display = "block";
+    } else {
+        // Hide the button
+        backToTopBtn.style.display = "none";
+    }
+});
+
+// Scroll to the top when the button is clicked
+backToTopBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+// Initialize the application
+initApp();
+
