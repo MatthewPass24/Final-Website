@@ -27,7 +27,7 @@ let products = [
         name: 'Wooden Plane',
         image: 'images/file (1).jpg',
         age: 'Toddlers',
-        description: 'Soar through imaginative skies with this classic wooden airplane.',
+        description: 'Soar through the imaginative skies with this classic wooden airplane.',
         price: 20.99
     },
     {
@@ -35,7 +35,7 @@ let products = [
         name: 'Wooden Car',
         image: 'images/file (5).jpg',
         age: 'All Ages',
-        description: 'This heirloom-quality wooden car is a timeless treasure. ',
+        description: 'This heirloom-quality wooden car is a timeless treasure fit for all. ',
         price: 16.99
     },
     {
@@ -80,14 +80,16 @@ function generateProductCards() {
                 <h2>${product.name}</h2>
             </div>
             <div class="card-body">
+            <div class="image">
                 <div class="card-image">
-                    <img src="${product.image}" class="img-fluid" style="min-height: 250px; height: 275px;">
+                    <img src="${product.image}" class="img-fluid image__img" style="min-height: 250px; height: 275px;">
                 </div>
                 <div class="card-body py-1" style="background-color:${backgroundColor};">
                     <p><strong>Age:</strong> ${product.age}</p>
                     <p><strong>Description:</strong> ${product.description}</p>
                     <p><strong>Price: </strong>$${product.price}</p> 
                     <button onclick="addToCart(${product.id})">Add To Cart</button>
+                </div>
                 </div>
             </div>  
         </div>`;
